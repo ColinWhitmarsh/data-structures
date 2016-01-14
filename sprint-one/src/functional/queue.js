@@ -13,11 +13,25 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var result = storage[queueSize];
+    
+
+    
+    // for (var key in storage) {
+    //   var result = storage[key];
+    //   delete storage[key];
+    //   break;
+    // }
+    
+    var result = storage[1];
+    for ( var key = 1; key < queueSize; key++ ){
+      storage[key] = storage[key+1];
+    }
+
     if (queueSize > 0) {
-      delete storage[queueSize];
       queueSize--;
     }
+
+
     return result;
   };
 
@@ -27,3 +41,10 @@ var Queue = function() {
 
   return someInstance;
 };
+
+
+/*{
+  1: a;
+  2: b;
+}
+*/
