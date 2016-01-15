@@ -32,7 +32,7 @@ var LinkedList = function() {
     // loop the list prop to find the target
     for (var prop in list) {
       // if list property contains the value that is the same as target
-      if ( list[prop].value === target) {
+      if ( list[prop].value === target ) {
         // return true
         return true;
       }
@@ -55,5 +55,9 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  addToTail is constant
+  removeHead is constant
+  contains is linear
+  Node is constant
  */
 
