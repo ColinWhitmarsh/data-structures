@@ -3,7 +3,9 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];  // fix me
+
+  _.extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -11,11 +13,28 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
+  var childTree = {
+    'value': value,
+    'children': []
+  };
+
+  this.children.push(childTree);
+
+  _.extend(childTree, treeMethods);
 };
 
 treeMethods.contains = function(target) {
-};
+// create function in contains that will check the child. Then we can use recursion to check the child's child
 
+
+  for (var i = 0; i < this.children.length; i++) {
+    if (this.children[i].value === target) {
+      return true;
+    }
+    return this.children[i].contains(target);
+  }
+  return false;
+};
 
 
 /*
