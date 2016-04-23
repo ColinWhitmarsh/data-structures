@@ -1,8 +1,8 @@
 var BinarySearchTree = function(value) {
   var bst = Object.create(BinarySearchTree.prototype);
   bst.value = value;
-  bst.left;
-  bst.right;
+  bst.left = undefined;
+  bst.right = undefined;
 
   return bst;
 };
@@ -14,9 +14,9 @@ BinarySearchTree.prototype.insert = function(value) {
   // add key property and assign to value
   node.value = value;
   // add left property and leave undefined
-  node.left;
+  node.left = undefined;
   // add right property and leave undefined
-  node.right;
+  node.right = undefined;
 
   var checkNode = function(newNode, currentNode) {
     // check if value is smaller than this.value (bst.value)
@@ -26,7 +26,7 @@ BinarySearchTree.prototype.insert = function(value) {
         currentNode.left = newNode;
         return;
       }
-      checkNode(newNode, currentNode.left)
+      checkNode(newNode, currentNode.left);
     }
     if (newNode.value > currentNode.value) {
       if (currentNode.right === undefined) {
